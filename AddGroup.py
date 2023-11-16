@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
+from _pytest import unittest
 from selenium import webdriver
 from selenium.common.exceptions import NoSuchElementException
 from selenium.common.exceptions import NoAlertPresentException
 from selenium.webdriver.common.by import By
-
-
-import unittest, time, re
+import unittest
+from group import Group
 
 class AddGroup(unittest.TestCase):
     def setUp(self):
@@ -14,14 +14,24 @@ class AddGroup(unittest.TestCase):
     
     def test_add_group(self):
         driver = self.driver
-        driver.get("http://localhost/addressbook/")
+        self.open_home_page(driver)
         self.auth(driver, "admin", "secret")
-        driver.find_element(By.ID,"header").click()
-        driver.find_element(By.LINK_TEXT,"groups").click()
-        self.add_group(driver)
-        driver.find_element(By.LINK_TEXT,"group page").click()
-        driver.find_element(By.LINK_TEXT,"Logout").click()
+        self.open_groups_page(driver)
+        self.add_group(driver,Group ("1","2","3"))
+        self.return_to_groups_page(driver)
+        self.logout(driver)
 
+    def test_add_empty_group(self):
+        driver = self.driver
+        self.open_home_page(driver)
+        self.auth(driver, "admin", "secret")
+        self.open_groups_page(driver)
+        self.add_group(driver, Group ("", "", ""))
+        self.return_to_groups_page(driver)
+        self.logout(driver)
+
+    def open_home_page(self, driver):
+        driver.get("http://localhost/addressbook/")
 
     def auth(self,driver,usarname,password):
         field_name = driver.find_element("name", "user")
@@ -30,35 +40,27 @@ class AddGroup(unittest.TestCase):
         field_pas.send_keys(password)
         driver.find_element(By.XPATH, "//input[@value='Login']").click()
 
+    def open_groups_page(self, driver):
+        driver.find_element(By.ID, "header").click()
+        driver.find_element(By.LINK_TEXT, "groups").click()
 
-    def add_group(self,driver):
+    def add_group(self,driver,group):
+        # init group creation
         driver.find_element(By.NAME,"new").click()
-        driver.find_element(By.NAME,"group_name").send_keys("1")
-        driver.find_element(By.NAME,"group_header").send_keys("2")
-        driver.find_element(By.NAME,"group_footer").send_keys("3")
+        # fill group form
+        driver.find_element(By.NAME,"group_name").send_keys(group.name)
+        driver.find_element(By.NAME,"group_header").send_keys(group.header)
+        driver.find_element(By.NAME,"group_footer").send_keys(group.footer)
+        # submit group creation
         driver.find_element(By.NAME,"submit").click()
-    
-    def is_element_present(self, how, what):
-        try: self.driver.find_element(by=how, value=what)
-        except NoSuchElementException as e: return False
-        return True
-    
-    def is_alert_present(self):
-        try: self.driver.switch_to_alert()
-        except NoAlertPresentException as e: return False
-        return True
-    
-    def close_alert_and_get_its_text(self):
-        try:
-            alert = self.driver.switch_to_alert()
-            alert_text = alert.text
-            if self.accept_next_alert:
-                alert.accept()
-            else:
-                alert.dismiss()
-            return alert_text
-        finally: self.accept_next_alert = True
-    
+
+    def return_to_groups_page(self, driver):
+        # return to groups page
+        driver.find_element(By.LINK_TEXT, "group page").click()
+
+    def logout(self, driver):
+        driver.find_element(By.LINK_TEXT, "Logout").click()
+
     def tearDown(self):
         self.driver.quit()
 
