@@ -1,25 +1,20 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
+from fixture.session import SessionHelper
 
 class Application():
 
     def __init__(self):
         self.driver = webdriver.Firefox()
         self.driver.implicitly_wait(30)
+        self.session = SessionHelper(self)
+
 
     def open_home_page(self,):
         driver = self.driver
         driver.get("http://localhost/addressbook/")
 
-    def auth(self,usarname,password):
-        driver = self.driver
-        self.open_home_page()
-        field_name = driver.find_element("name", "user")
-        field_name.send_keys(usarname)
-        field_pas = driver.find_element("name", "pass")
-        field_pas.send_keys(password)
-        driver.find_element(By.XPATH, "//input[@value='Login']").click()
 
     def open_groups_page(self):
         driver = self.driver
@@ -92,11 +87,6 @@ class Application():
         driver = self.driver
         # return to groups page
         driver.find_element(By.LINK_TEXT, "home page").click()
-
-
-    def logout(self):
-        driver = self.driver
-        driver.find_element(By.LINK_TEXT, "Logout").click()
 
     def destroy(self):
         driver = self.driver

@@ -10,12 +10,12 @@ def app(request):
     return fixture
 
 def test_add_group(app):
-    app.auth("admin", "secret")
+    app.session.auth("admin", "secret")
     app.add_group(Group("1","2","3"))
-    app.logout()
+    app.session.logout()
 
 def test_add_empty_group(app):
-    app.auth("admin", "secret")
+    app.session.auth("admin", "secret")
     app.add_group(Group("", "", ""))
-    app.logout()
+    app.session.logout()
 
