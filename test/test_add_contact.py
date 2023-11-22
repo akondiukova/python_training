@@ -3,13 +3,6 @@ from model.contact import Contact
 from fixture.application import Application
 
 
-@pytest.fixture
-def app(request):
-    fixture = Application()
-    request.addfinalizer(fixture.destroy)
-    return fixture
-
-
 def test_add_contact(app):
     app.session.auth("admin", "secret")
     app.contact.add_contact(Contact("Ivanov","Ivan","Ivanov","ivan", "title","Company","Nizhny Novgorod, Bolshaya Pokrovskaya, 100",
