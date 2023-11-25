@@ -55,3 +55,21 @@ class ContactHelper:
         driver = self.app.driver
         # return to groups page
         driver.find_element(By.LINK_TEXT, "home page").click()
+
+    def test_edit_contact(self, contact):
+        driver = self.app.driver
+        driver.find_element(By.NAME, "selected[]").click()
+        driver.find_element(By.XPATH,"//img[@title='Edit']").click()
+        driver.find_element(By.NAME, "firstname").clear()
+        driver.find_element(By.NAME, "firstname").send_keys(contact.first_name)
+        driver.find_element(By.XPATH, "//input[@value='Update']").click()
+        self.return_to_home_page()
+
+    def test_delete_contact(self):
+        driver = self.app.driver
+        driver.find_element(By.NAME, "selected[]").click()
+        driver.find_element(By.XPATH,"//img[@title='Edit']").click()
+        driver.find_element(By.XPATH, "//input[@value='Delete']").click()
+
+
+

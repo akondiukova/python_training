@@ -20,6 +20,6 @@ class Application():
 
 
     def destroy(self):
-        driver = self.driver
-        self.driver.quit()
+       driver = self.driver
+       self.driver.quit()
 

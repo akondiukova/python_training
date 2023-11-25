@@ -33,3 +33,17 @@ class GroupHelper:
         driver.find_element(By.NAME, "selected[]").click()
         driver.find_element(By.NAME, "delete").click()
         self.return_to_groups_page()
+
+    def test_edit_group(self, group):
+        driver = self.app.driver
+        self.open_groups_page()
+        driver.find_element(By.NAME, "selected[]").click()
+        driver.find_element(By.NAME, "edit").click()
+        driver.find_element(By.NAME, "group_name").send_keys(group.name)
+        driver.find_element(By.NAME, "group_header").send_keys(group.header)
+        driver.find_element(By.NAME, "group_footer").send_keys(group.footer)
+        driver.find_element(By.NAME, "update").click()
+        self.return_to_groups_page()
+
+
+

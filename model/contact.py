@@ -33,5 +33,3 @@ class Contact:
         self.sec_notes = sec_notes
 
 
-
-
