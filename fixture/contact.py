@@ -89,6 +89,11 @@ class ContactHelper:
             select_day = Select(driver.find_element(By.NAME, select_name))
             select_day.select_by_value(text)
 
+    def count(self):
+        driver = self.app.driver
+        self.open_contacts_page()
+        return len(driver.find_elements(By.NAME, "selected[]"))
+
 
 
 
