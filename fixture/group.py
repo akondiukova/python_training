@@ -6,8 +6,9 @@ class GroupHelper:
 
     def open_groups_page(self):
         driver = self.app.driver
-        driver.find_element(By.ID, "header").click()
-        driver.find_element(By.LINK_TEXT, "groups").click()
+        if not (driver.current_url.endswith("/group.php") and len(driver.find_elements(By.NAME, "new")) > 0):
+            driver.find_element(By.ID, "header").click()
+            driver.find_element(By.LINK_TEXT, "groups").click()
 
     def create(self, group):
         driver = self.app.driver

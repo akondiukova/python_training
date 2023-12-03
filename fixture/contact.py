@@ -9,7 +9,8 @@ class ContactHelper:
 
     def open_contact_page(self):
         driver = self.app.driver
-        driver.find_element(By.LINK_TEXT, "add new").click()
+        if not (driver.current_url.endswith("/edit.php")):
+            driver.find_element(By.LINK_TEXT, "add new").click()
 
     def open_contacts_page(self):
         driver = self.app.driver
