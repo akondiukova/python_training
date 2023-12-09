@@ -42,17 +42,25 @@ class GroupHelper:
         driver.find_element(By.LINK_TEXT, "group page").click()
 
     def test_delete_first_group(self):
+        self.test_delete_group_by_index(0)
+
+    def test_delete_group_by_index(self,index):
         driver = self.app.driver
         self.open_groups_page()
-        self.select_first_group()
+        self.select_group_by_index(index)
         driver.find_element(By.NAME, "delete").click()
         self.return_to_groups_page()
         self.group_cache = None
 
-    def test_mofify_first_group(self, group):
+
+    def test_mofify_first_group(self):
+       self.test_mofify_group_by_index(0)
+
+
+    def test_mofify_group_by_index(self,index, group):
         driver = self.app.driver
         self.open_groups_page()
-        self.select_first_group()
+        self.select_group_by_index(index)
         driver.find_element(By.NAME, "edit").click()
         self.fill_group_form(group)
         driver.find_element(By.NAME, "update").click()
@@ -62,6 +70,10 @@ class GroupHelper:
     def select_first_group(self):
         driver = self.app.driver
         driver.find_element(By.NAME, "selected[]").click()
+
+    def select_group_by_index(self,index):
+        driver = self.app.driver
+        driver.find_elements(By.NAME, "selected[]")[index].click()
 
     def count(self):
         driver = self.app.driver

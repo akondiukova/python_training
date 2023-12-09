@@ -63,21 +63,28 @@ class ContactHelper:
         # return to groups page
         driver.find_element(By.LINK_TEXT, "home page").click()
 
-    def test_edit_contact(self, contact):
+    def test_edit_first_contact(self, contact):
+        self.test_edit_contact_by_index(0)
+
+    def test_edit_contact_by_index(self, index, contact):
         driver = self.app.driver
         self.open_contacts_page()
-        driver.find_element(By.NAME, "selected[]").click()
-        driver.find_element(By.XPATH,"//img[@title='Edit']").click()
+        driver.find_elements(By.NAME, "selected[]")[index].click()
+        driver.find_elements(By.XPATH, "//img[@title='Edit']")[index].click()
         self.fill_contact_form(contact)
         driver.find_element(By.XPATH, "//input[@value='Update']").click()
         self.return_to_home_page()
         self.contact_cache = None
 
     def test_delete_contact(self):
+        self.test_delete_contact_by_index(0)
+
+
+    def test_delete_contact_by_index(self,index):
         driver = self.app.driver
         self.open_contacts_page()
-        driver.find_element(By.NAME, "selected[]").click()
-        driver.find_element(By.XPATH,"//img[@title='Edit']").click()
+        driver.find_elements(By.NAME, "selected[]")[index].click()
+        driver.find_elements(By.XPATH, "//img[@title='Edit']")[index].click()
         driver.find_element(By.XPATH, "//input[@value='Delete']").click()
         self.contact_cache = None
 
