@@ -24,6 +24,7 @@ class ContactHelper:
         # submit contact creation
         driver.find_element(By.NAME, "submit").click()
         self.return_to_home_page()
+        self.contact_cache = None
 
     def fill_contact_form(self, contact):
         driver = self.app.driver
@@ -70,6 +71,7 @@ class ContactHelper:
         self.fill_contact_form(contact)
         driver.find_element(By.XPATH, "//input[@value='Update']").click()
         self.return_to_home_page()
+        self.contact_cache = None
 
     def test_delete_contact(self):
         driver = self.app.driver
@@ -77,6 +79,7 @@ class ContactHelper:
         driver.find_element(By.NAME, "selected[]").click()
         driver.find_element(By.XPATH,"//img[@title='Edit']").click()
         driver.find_element(By.XPATH, "//input[@value='Delete']").click()
+        self.contact_cache = None
 
 
     def change_field_value(self, field_name, text):
@@ -96,19 +99,19 @@ class ContactHelper:
         self.open_contacts_page()
         return len(driver.find_elements(By.NAME, "selected[]"))
 
+    contact_cache = None
+
     def get_contact_list(self):
-        driver = self.app.driver
-        self.open_contacts_page()
-        contacts = []
-        for element in driver.find_elements(By.XPATH, "//tr[@name='entry']"):
-            last_name = element.find_element(By.XPATH, ".//td[2]").text
-            print("last_name "+last_name)
-            first_name = element.find_element(By.XPATH, ".//td[3]").text
-            print("first_name "+first_name)
-            id = element.find_element(By.NAME, "selected[]").get_attribute("value")
-            print("id "+id)
-            contacts.append(Contact(first_name=first_name,last_name=last_name,id=id))
-        return contacts
+        if self.contact_cache is None:
+            driver = self.app.driver
+            self.open_contacts_page()
+            self.contact_cache = []
+            for element in driver.find_elements(By.XPATH, "//tr[@name='entry']"):
+                last_name = element.find_element(By.XPATH, ".//td[2]").text
+                first_name = element.find_element(By.XPATH, ".//td[3]").text
+                id = element.find_element(By.NAME, "selected[]").get_attribute("value")
+                self.contact_cache.append(Contact(first_name=first_name,last_name=last_name,id=id))
+        return list(self.contact_cache)
 
 
 
