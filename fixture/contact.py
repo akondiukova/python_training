@@ -1,6 +1,7 @@
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import Select
 from model.contact import Contact
+import re
 
 class ContactHelper:
 
@@ -68,9 +69,7 @@ class ContactHelper:
 
     def test_edit_contact_by_index(self, index, contact):
         driver = self.app.driver
-        self.open_contacts_page()
-        driver.find_elements(By.NAME, "selected[]")[index].click()
-        driver.find_elements(By.XPATH, "//img[@title='Edit']")[index].click()
+        self.open_contact_to_edit_by_index(index)
         self.fill_contact_form(contact)
         driver.find_element(By.XPATH, "//input[@value='Update']").click()
         self.return_to_home_page()
@@ -82,9 +81,7 @@ class ContactHelper:
 
     def test_delete_contact_by_index(self,index):
         driver = self.app.driver
-        self.open_contacts_page()
-        driver.find_elements(By.NAME, "selected[]")[index].click()
-        driver.find_elements(By.XPATH, "//img[@title='Edit']")[index].click()
+        self.open_contact_to_edit_by_index(index)
         driver.find_element(By.XPATH, "//input[@value='Delete']").click()
         self.contact_cache = None
 
@@ -117,8 +114,60 @@ class ContactHelper:
                 last_name = element.find_element(By.XPATH, ".//td[2]").text
                 first_name = element.find_element(By.XPATH, ".//td[3]").text
                 id = element.find_element(By.NAME, "selected[]").get_attribute("value")
-                self.contact_cache.append(Contact(first_name=first_name,last_name=last_name,id=id))
+                address = element.find_element(By.XPATH, ".//td[4]").text
+                # allphones = element.find_element(By.XPATH, ".//td[6]").text.splitlines()
+                allphones = element.find_element(By.XPATH, ".//td[6]").text
+                # self.contact_cache.append(Contact(first_name=first_name,last_name=last_name,id=id,home_phone=allphones[0],
+                #                                   mobile_phone=allphones[1],work_phone=allphones[2]))
+                allemails = element.find_element(By.XPATH, ".//td[5]").text
+                self.contact_cache.append(
+                    Contact(first_name=first_name, last_name=last_name, id=id,
+                            all_phones_from_home_page=allphones, address=address, all_emails = allemails))
         return list(self.contact_cache)
+
+
+    def open_contact_to_view_by_index(self, index):
+        driver = self.app.driver
+        self.open_contacts_page()
+        driver.find_elements(By.NAME, "selected[]")[index].click()
+        driver.find_elements(By.XPATH, "//img[@title='Details']")[index].click()
+
+    def open_contact_to_edit_by_index(self, index):
+        driver = self.app.driver
+        self.open_contacts_page()
+        driver.find_elements(By.NAME, "selected[]")[index].click()
+        driver.find_elements(By.XPATH, "//img[@title='Edit']")[index].click()
+
+    def get_contact_info_from_edit_page(self, index):
+        driver = self.app.driver
+        self.open_contact_to_edit_by_index(index)
+        firstname = driver.find_element(By.NAME, "firstname").get_attribute("value")
+        lastname = driver.find_element(By.NAME, "lastname").get_attribute("value")
+        id = driver.find_element(By.NAME, "id").get_attribute("value")
+        address = driver.find_element(By.NAME, "address").get_attribute("value")
+        homephone = driver.find_element(By.NAME,"home").get_attribute("value")
+        workphone = driver.find_element(By.NAME, "work").get_attribute("value")
+        mobilephone = driver.find_element(By.NAME, "mobile").get_attribute("value")
+        secphone = driver.find_element(By.NAME, "phone2").get_attribute("value")
+
+        email1 = driver.find_element(By.NAME, "email").get_attribute("value")
+        email2 = driver.find_element(By.NAME, "email2").get_attribute("value")
+        email3 = driver.find_element(By.NAME, "email3").get_attribute("value")
+
+        return Contact(first_name=firstname,last_name=lastname,home_phone=homephone,mobile_phone=mobilephone,
+                       work_phone=workphone,id=id,sec_home=secphone,address=address, email = email1, email2 = email2, email3 = email3)
+
+    def get_contact_from_view_page(self, index):
+        driver = self.app.driver
+        self.open_contact_to_view_by_index(index)
+        text = driver.find_element(By.ID, "content").text
+        homephone = re.search("H: (.*)",text).group(1)
+        workphone = re.search("W: (.*)", text).group(1)
+        mobilephone = re.search("M: (.*)", text).group(1)
+        return Contact(home_phone=homephone, mobile_phone=mobilephone,
+                       work_phone=workphone)
+
+
 
 
 
