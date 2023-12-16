@@ -21,10 +21,7 @@ def merge_phones_like_on_home_page(contact):
                                             contact.sec_home]))))
 
 def merge_emails_on_home_page(contact):
-    return "\n".join(filter(lambda x: x != "",
-                                map(lambda x: clear(x),
-                                    filter(lambda x: x is not None,
-                                           [contact.email, contact.email2, contact.email3]))))
+    return "\n".join(filter(lambda x: x != "" and x is not None,[contact.email, contact.email2, contact.email3]))
 
 def clear(s):
     return re.sub("[() -]","", s)
