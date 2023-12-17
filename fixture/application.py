@@ -6,16 +6,24 @@ from fixture.contact import ContactHelper
 
 class Application():
 
-    def __init__(self):
-        self.driver = webdriver.Firefox()
+    def __init__(self, browser, baseUrl):
+        if browser == "firefox":
+            self.driver = webdriver.Firefox()
+        elif browser == "chrome":
+            self.driver = webdriver.Chrome()
+        elif browser == "ie":
+            self.driver = webdriver.Ie()
+        else:
+            raise ValueError("Unrecognize browser %s" % browser)
         self.session = SessionHelper(self)
         self.group = GroupHelper(self)
         self.contact = ContactHelper(self)
+        self.baseUrl = baseUrl
 
 
     def open_home_page(self):
         driver = self.driver
-        driver.get("http://localhost/addressbook/")
+        driver.get(self.baseUrl)
 
     def is_valid(self):
         try:
