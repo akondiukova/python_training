@@ -139,6 +139,19 @@ class ContactHelper:
                             all_phones_from_home_page=allphones, address=address, all_emails = allemails))
         return list(self.contact_cache)
 
+    def get_contact_info_by_id(self, id):
+        driver = self.app.driver
+        self.open_contacts_page()
+        self.contact_cache = []
+        contact = driver.find_element(By.CSS_SELECTOR, "tr[name='entry']:has(input[id='%s'])" % id)
+        last_name = contact.find_element(By.XPATH, ".//td[2]").text
+        first_name = contact.find_element(By.XPATH, ".//td[3]").text
+        address = contact.find_element(By.XPATH, ".//td[4]").text
+        allphones = contact.find_element(By.XPATH, ".//td[6]").text
+        allemails = contact.find_element(By.XPATH, ".//td[5]").text
+        return Contact(first_name=first_name, last_name=last_name, id=id,
+                    all_phones_from_home_page=allphones, address=address, all_emails=allemails)
+
 
     def open_contact_to_view_by_index(self, index):
         driver = self.app.driver
@@ -177,6 +190,7 @@ class ContactHelper:
 
         return Contact(first_name=firstname,last_name=lastname,home_phone=homephone,mobile_phone=mobilephone,
                        work_phone=workphone,id=id,sec_home=secphone,address=address, email = email1, email2 = email2, email3 = email3)
+
 
     def get_contact_from_view_page(self, index):
         driver = self.app.driver
