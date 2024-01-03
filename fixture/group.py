@@ -93,4 +93,26 @@ class GroupHelper:
                self.group_cache.append(Group(name=text,id=id))
         return list(self.group_cache)
 
+    def test_delete_group_by_id(self,id):
+        driver = self.app.driver
+        self.open_groups_page()
+        self.select_group_by_id(id)
+        driver.find_element(By.NAME, "delete").click()
+        self.return_to_groups_page()
+        self.group_cache = None
+
+    def test_mofify_group_by_id(self,group,id):
+        driver = self.app.driver
+        self.open_groups_page()
+        self.select_group_by_id(id)
+        driver.find_element(By.NAME, "edit").click()
+        self.fill_group_form(group)
+        driver.find_element(By.NAME, "update").click()
+        self.return_to_groups_page()
+        self.group_cache = None
+
+    def select_group_by_id(self,id):
+        driver = self.app.driver
+        driver.find_element(By.CSS_SELECTOR, "input[value='%s']" % id).click()
+
 

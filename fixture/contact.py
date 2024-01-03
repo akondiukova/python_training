@@ -67,6 +67,14 @@ class ContactHelper:
     def test_edit_first_contact(self, contact):
         self.test_edit_contact_by_index(0)
 
+    def test_edit_contact_by_id(self, id, contact):
+        driver = self.app.driver
+        self.open_contact_to_edit_by_id(id)
+        self.fill_contact_form(contact)
+        driver.find_element(By.XPATH, "//input[@value='Update']").click()
+        self.return_to_home_page()
+        self.contact_cache = None
+
     def test_edit_contact_by_index(self, index, contact):
         driver = self.app.driver
         self.open_contact_to_edit_by_index(index)
@@ -85,6 +93,12 @@ class ContactHelper:
         driver.find_element(By.XPATH, "//input[@value='Delete']").click()
         self.contact_cache = None
 
+
+    def test_delete_contact_by_id(self,id):
+        driver = self.app.driver
+        self.open_contact_to_edit_by_id(id)
+        driver.find_element(By.XPATH, "//input[@value='Delete']").click()
+        self.contact_cache = None
 
     def change_field_value(self, field_name, text):
         driver = self.app.driver
@@ -137,6 +151,13 @@ class ContactHelper:
         self.open_contacts_page()
         driver.find_elements(By.NAME, "selected[]")[index].click()
         driver.find_elements(By.XPATH, "//img[@title='Edit']")[index].click()
+
+
+    def open_contact_to_edit_by_id(self, id):
+        driver = self.app.driver
+        self.open_contacts_page()
+        driver.find_element(By.CSS_SELECTOR, "input[id='%s']" % id).click()
+        driver.find_element(By.CSS_SELECTOR, "a[href='edit.php?id=%s']" % id).click()
 
     def get_contact_info_from_edit_page(self, index):
         driver = self.app.driver
