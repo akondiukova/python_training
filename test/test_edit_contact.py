@@ -9,17 +9,15 @@ def test_edit_contact(app,orm,check_ui):
     old_contacts = orm.get_contact_list()
     contact_new = Contact(first_name="543",last_name="345")
     contact = random.choice(old_contacts)
-    # index = randrange(len(old_contacts))
-    # id = old_contacts[index].id
+    index = old_contacts.index(contact)
     if app.contact.count() == 0:
         app.contact.add_contact(Contact("Ivanov","Ivan","Ivanov","ivan"))
     app.contact.test_edit_contact_by_id(contact.id,contact_new)
     new_contacts = orm.get_contact_list()
     assert len(old_contacts) == len(new_contacts)
     old_contacts.remove(contact)
-    old_contacts.append(contact_new)
-    # old_contacts[index] = contact
-    assert sorted(old_contacts, key=Contact.id_or_max) == sorted(new_contacts, key=Contact.id_or_max)
+    old_contacts.insert(index,contact_new)
+    assert old_contacts == new_contacts
     if check_ui:
         assert sorted(new_contacts, key=Contact.id_or_max) == sorted(app.contact.get_contact_list(),
                                                                      key=Contact.id_or_max)
