@@ -206,6 +206,8 @@ class ContactHelper:
     def add_contact_in_group_by_id(self, id_contact, id_group):
         driver = self.app.driver
         self.open_contacts_page()
+        select_group = Select(driver.find_element(By.NAME, "group"))
+        select_group.select_by_value("")
         driver.find_element(By.CSS_SELECTOR, "input[id='%s']" % id_contact).click()
         select_group = Select(driver.find_element(By.NAME, "to_group"))
         select_group.select_by_value('%s' % id_group)
@@ -218,6 +220,8 @@ class ContactHelper:
         select_group.select_by_value('%s' % id_group)
         driver.find_element(By.CSS_SELECTOR, "input[id='%s']" % id_contact).click()
         driver.find_element(By.XPATH, "//input[@name='remove']").click()
+
+
 
 
 
