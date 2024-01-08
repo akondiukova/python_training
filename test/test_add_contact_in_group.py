@@ -11,11 +11,11 @@ def test_add_contact_in_group(app,orm,check_ui):
     if len(old_contacts) == 0:
         app.contact.add_contact(Contact("Ivanov","Ivan","Ivanov","ivan"))
         old_contacts = orm.get_contact_list()
-    if orm.all_contacts_are_in_all_groups():
-        app.group.create(Group(name="test"))
-        old_groups = orm.get_group_list()[-1]
     rand_contact = random.choice(old_contacts)
     rand_group = random.choice(old_groups)
+    if orm.all_contacts_are_in_all_groups():
+        app.group.create(Group(name="test"))
+        rand_group = orm.get_group_list()[-1]
     if rand_contact in orm.get_contacts_in_group(rand_group):
         app.contact.delete_contact_from_group_by_id(rand_contact.id,rand_group.id)
     app.contact.add_contact_in_group_by_id(rand_contact.id,rand_group.id)
