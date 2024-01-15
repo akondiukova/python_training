@@ -3,4 +3,4 @@ selenium
 jsonpickle
 pony
 pymysql
-pytest-bdd
+pytest-bdd 3.4.0
