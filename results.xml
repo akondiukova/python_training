@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?><testsuites><testsuite name="pytest" errors="0" failures="3" skipped="0" tests="26" time="33.389" timestamp="2024-01-15T20:32:46.004878" hostname="DESKTOP-TD5NKNL"><testcase classname="test.test_add_contact" name="test_add_contact[None:first_name:last_nameYOFJ2tHUMZsFz]" time="7.305" /><testcase classname="test.test_add_contact" name="test_add_contact[None:first_name0:last_nameS91]" time="1.274" /><testcase classname="test.test_add_contact" name="test_add_contact[None:first_nameP2Gq:last_nameJqPWQ]" time="1.310" /><testcase classname="test.test_add_contact_in_group" name="test_add_contact_in_group" time="0.895" /><testcase classname="test.test_add_group" name="test_add_group[None:::]" time="0.766" /><testcase classname="test.test_add_group" name="test_add_group[None:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr]" time="0.789" /><testcase classname="test.test_add_group" name="test_add_group[None:nameesw:header:footerkPSEKhL]" time="0.433" /><testcase classname="test.test_add_group" name="test_add_group[None:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx]" time="0.503" /><testcase classname="test.test_add_group" name="test_add_group[None:nameKCN7p:header:footergMiGcOx9sUZTb A]" time="0.346" /><testcase classname="test.test_add_group" name="test_add_group[None:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp]" time="0.395" /><testcase classname="test.test_add_group" name="test_add_group[None:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e]" time="0.342" /><testcase classname="test.test_add_group" name="test_add_group[None:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3]" time="0.356" /><testcase classname="test.test_add_group" name="test_add_group[None:name 1F:headerN Px:footerKyLLM  4hqMdHg]" time="0.308" /><testcase classname="test.test_add_group" name="test_add_group[None:nameEl2n YJwT:header1S77Z :footerwG]" time="0.323" /><testcase classname="test.test_add_group" name="test_add_group[None:nameLIk7T:headerAo o6:footerM thMj]" time="0.297" /><testcase classname="test.test_db_matches_ui" name="test_group_list" time="1.234" /><testcase classname="test.test_delete_contact" name="test_delete_contact" time="0.802" /><testcase classname="test.test_delete_contact_from_group" name="test_delete_contact_from_group" time="1.333" /><testcase classname="test.test_delete_group" name="test_delete_group" time="0.744" /><testcase classname="test.test_edit_contact" name="test_edit_contact" time="1.125" /><testcase classname="test.test_edit_contact" name="test_edit_birth_day_contact" time="2.246" /><testcase classname="test.test_edit_group" name="test_modify_group_name" time="0.893"><failure message="assert [188:test::, ...rkPSEKhL, ...] == [188:test::, ...rkPSEKhL, ...]&#10;  At index 79 diff: 294::: != 293:name56:headerAo o6:footerM thMj&#10;  Full diff:&#10;    [&#10;     188:test::,&#10;     206:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     214:name1:header1:footer1,&#10;     215:::,&#10;     216:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     217:nameesw:header:footerkPSEKhL,&#10;     218:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     219:nameKCN7p:header:footergMiGcOx9sUZTb A,&#10;     220:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     221:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     222:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     223:name 1F:headerN Px:footerKyLLM  4hqMdHg,&#10;     224:nameEl2n YJwT:header1S77Z :footerwG,&#10;     225:nameLIk7T:headerAo o6:footerM thMj,&#10;     226:::,&#10;     227:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     228:nameesw:header:footerkPSEKhL,&#10;     229:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     230:nameKCN7p:header:footergMiGcOx9sUZTb A,&#10;     231:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     232:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     233:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     234:name 1F:headerN Px:footerKyLLM  4hqMdHg,&#10;     235:nameEl2n YJwT:header1S77Z :footerwG,&#10;     236:nameLIk7T:headerAo o6:footerM thMj,&#10;     237:name1:header1:footer1,&#10;     238:name2:header2:footer2,&#10;     239:::,&#10;     240:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     241:nameesw:header:footerkPSEKhL,&#10;     242:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     243:nameKCN7p:header:footergMiGcOx9sUZTb A,&#10;     244:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     245:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     246:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     247:name 1F:headerN Px:footerKyLLM  4hqMdHg,&#10;     248:nameEl2n YJwT:header1S77Z :footerwG,&#10;     249:nameLIk7T:headerAo o6:footerM thMj,&#10;     250:::,&#10;     251:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     252:nameesw:header:footerkPSEKhL,&#10;     253:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     254:nameKCN7p:header:footergMiGcOx9sUZTb A,&#10;     255:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     256:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     257:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     258:name 1F:headerN Px:footerKyLLM  4hqMdHg,&#10;     259:nameEl2n YJwT:header1S77Z :footerwG,&#10;     260:nameLIk7T:headerAo o6:footerM thMj,&#10;     261:::,&#10;     262:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     263:nameesw:header:footerkPSEKhL,&#10;     264:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     265:name56:header:footergMiGcOx9sUZTb A,&#10;     266:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     267:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     268:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     269:name 1F:headerN Px:footerKyLLM  4hqMdHg,&#10;     270:nameEl2n YJwT:header1S77Z :footerwG,&#10;     271:nameLIk7T:headerAo o6:footerM thMj,&#10;     272:::,&#10;     273:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     274:nameesw:header:footerkPSEKhL,&#10;     275:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     276:nameKCN7p:header:footergMiGcOx9sUZTb A,&#10;     277:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     278:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     279:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     280:name 1F:headerN Px:footerKyLLM  4hqMdHg,&#10;     281:nameEl2n YJwT:header1S77Z :footerwG,&#10;     282:nameLIk7T:headerAo o6:footerM thMj,&#10;     283:::,&#10;     284:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     285:nameesw:header:footerkPSEKhL,&#10;     286:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     288:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     289:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     290:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     292:nameEl2n YJwT:header1S77Z :footerwG,&#10;  -  293:name56:headerAo o6:footerM thMj,&#10;     294:::,&#10;     295:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,&#10;     296:nameesw:header:footerkPSEKhL,&#10;     297:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,&#10;     298:nameKCN7p:header:footergMiGcOx9sUZTb A,&#10;     299:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,&#10;     300:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,&#10;     301:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,&#10;     302:name 1F:headerN Px:footerKyLLM  4hqMdHg,&#10;     303:nameEl2n YJwT:header1S77Z :footerwG,&#10;     304:nameLIk7T:headerAo o6:footerM thMj,&#10;  +  None:name56:None:None,&#10;    ]">app = &lt;fixture.application.Application object at 0x02871B20&gt;
+orm = &lt;fixture.orm.ORMFixture object at 0x03542418&gt;, check_ui = False
+
+    def test_modify_group_name(app,orm,check_ui):
+        # old_groups = app.group.get_group_list()
+        old_groups = orm.get_group_list()
+        group_new = Group(name="name56")
+        # index = randrange(len(old_groups))
+        group = random.choice(old_groups)
+        # group.id = old_groups[index].id
+        if app.group.count() == 0:
+            app.group.create(Group(name="Name"))
+        app.group.test_mofify_group_by_id(group_new,group.id)
+        # new_groups = app.group.get_group_list()
+        new_groups = orm.get_group_list()
+        assert len(old_groups) == len(new_groups)
+        old_groups.remove(group)
+        old_groups.append(group_new)
+&gt;       assert sorted(old_groups, key=Group.id_or_max) == sorted(new_groups, key=Group.id_or_max)
+E       assert [188:test::, ...rkPSEKhL, ...] == [188:test::, ...rkPSEKhL, ...]
+E         At index 79 diff: 294::: != 293:name56:headerAo o6:footerM thMj
+E         Full diff:
+E           [
+E            188:test::,
+E            206:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            214:name1:header1:footer1,
+E            215:::,
+E            216:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            217:nameesw:header:footerkPSEKhL,
+E            218:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            219:nameKCN7p:header:footergMiGcOx9sUZTb A,
+E            220:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            221:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            222:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            223:name 1F:headerN Px:footerKyLLM  4hqMdHg,
+E            224:nameEl2n YJwT:header1S77Z :footerwG,
+E            225:nameLIk7T:headerAo o6:footerM thMj,
+E            226:::,
+E            227:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            228:nameesw:header:footerkPSEKhL,
+E            229:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            230:nameKCN7p:header:footergMiGcOx9sUZTb A,
+E            231:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            232:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            233:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            234:name 1F:headerN Px:footerKyLLM  4hqMdHg,
+E            235:nameEl2n YJwT:header1S77Z :footerwG,
+E            236:nameLIk7T:headerAo o6:footerM thMj,
+E            237:name1:header1:footer1,
+E            238:name2:header2:footer2,
+E            239:::,
+E            240:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            241:nameesw:header:footerkPSEKhL,
+E            242:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            243:nameKCN7p:header:footergMiGcOx9sUZTb A,
+E            244:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            245:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            246:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            247:name 1F:headerN Px:footerKyLLM  4hqMdHg,
+E            248:nameEl2n YJwT:header1S77Z :footerwG,
+E            249:nameLIk7T:headerAo o6:footerM thMj,
+E            250:::,
+E            251:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            252:nameesw:header:footerkPSEKhL,
+E            253:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            254:nameKCN7p:header:footergMiGcOx9sUZTb A,
+E            255:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            256:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            257:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            258:name 1F:headerN Px:footerKyLLM  4hqMdHg,
+E            259:nameEl2n YJwT:header1S77Z :footerwG,
+E            260:nameLIk7T:headerAo o6:footerM thMj,
+E            261:::,
+E            262:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            263:nameesw:header:footerkPSEKhL,
+E            264:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            265:name56:header:footergMiGcOx9sUZTb A,
+E            266:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            267:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            268:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            269:name 1F:headerN Px:footerKyLLM  4hqMdHg,
+E            270:nameEl2n YJwT:header1S77Z :footerwG,
+E            271:nameLIk7T:headerAo o6:footerM thMj,
+E            272:::,
+E            273:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            274:nameesw:header:footerkPSEKhL,
+E            275:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            276:nameKCN7p:header:footergMiGcOx9sUZTb A,
+E            277:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            278:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            279:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            280:name 1F:headerN Px:footerKyLLM  4hqMdHg,
+E            281:nameEl2n YJwT:header1S77Z :footerwG,
+E            282:nameLIk7T:headerAo o6:footerM thMj,
+E            283:::,
+E            284:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            285:nameesw:header:footerkPSEKhL,
+E            286:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            288:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            289:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            290:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            292:nameEl2n YJwT:header1S77Z :footerwG,
+E         -  293:name56:headerAo o6:footerM thMj,
+E            294:::,
+E            295:name2slJDv6 B:header:footer 8Fc5H0o vpN9yZVjr,
+E            296:nameesw:header:footerkPSEKhL,
+E            297:namePN2ThF:headerD78Dt 2q:footerV5sK2NkOYEaPIx,
+E            298:nameKCN7p:header:footergMiGcOx9sUZTb A,
+E            299:name zQ:header3XTeFg Ip k7fUXMb:footerh4m2a  JJE63e wp,
+E            300:nameWx uX40a:headerl4r0OH0  7xjk:footerW56e,
+E            301:nameYcE06 4Le:headerUKt GBwATtT:footertIMH88y1i DJ1bf3,
+E            302:name 1F:headerN Px:footerKyLLM  4hqMdHg,
+E            303:nameEl2n YJwT:header1S77Z :footerwG,
+E            304:nameLIk7T:headerAo o6:footerM thMj,
+E         +  None:name56:None:None,
+E           ]
+
+test\test_edit_group.py:21: AssertionError</failure></testcase><testcase classname="test.test_edit_group" name="test_modify_group_header" time="1.154"><failure message="TypeError: test_mofify_first_group() takes 1 positional argument but 2 were given">app = &lt;fixture.application.Application object at 0x02871B20&gt;
+
+    def test_modify_group_header(app):
+        old_groups = app.group.get_group_list()
+        if app.group.count() == 0:
+            app.group.create(Group(name="Name",header="header"))
+&gt;       app.group.test_mofify_first_group(Group(header="New_header"))
+E       TypeError: test_mofify_first_group() takes 1 positional argument but 2 were given
+
+test\test_edit_group.py:29: TypeError</failure></testcase><testcase classname="test.test_fields_contact" name="test_fields_contact" time="2.045" /><testcase classname="test.test_phones" name="test_phones_on_home_page" time="0.062"><failure message="IndexError: list index out of range">app = &lt;fixture.application.Application object at 0x02871B20&gt;
+
+    def test_phones_on_home_page(app):
+&gt;       contact_from_home_page = app.contact.get_contact_list()[0]
+E       IndexError: list index out of range
+
+test\test_phones.py:4: IndexError</failure></testcase><testcase classname="test.test_phones" name="test_phones_on_contact_view_page" time="5.742" /></testsuite></testsuites>
